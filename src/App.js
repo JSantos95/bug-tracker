@@ -1,38 +1,22 @@
 import React from 'react';
-import { BrowserRouter as Router, Switch, Route, Link } from "react-router-dom";
+import { BrowserRouter as Router, Route} from "react-router-dom";
+import "bootstrap/dist/css/bootstrap.min.css";
+
+import NavBar from './components/navbar';
+import BugList from './components/bugList';
+import EditBug from './components/editBug';
+import CreateBug from './components/createBug';
+import CreateUser from './components/createUser';
 
 const App = () => {
   return (
     <Router>
-      <div>
-        <nav>
-          <ul>
-            <li>
-              <Link to="/">Home</Link>
-            </li>
-            <li>
-              <Link to="/about">About</Link>
-            </li>
-            <li>
-              <Link to="/users">Users</Link>
-            </li>
-          </ul>
-        </nav>
-
-        {/* A <Switch> looks through its children <Route>s and
-            renders the first one that matches the current URL. */}
-        <Switch>
-          <Route path="/about">
-            <About />
-          </Route>
-          <Route path="/users">
-            <Users />
-          </Route>
-          <Route path="/">
-            <Home />
-          </Route>
-        </Switch>
-      </div>
+      <NavBar />
+      <br/>
+      <Route path="/" exact component={BugList}/>
+      <Route path="/edit/:id" component={EditBug}/>
+      <Route path="/create" component={CreateBug}/>
+      <Route path="/user" component={CreateUser}/>
     </Router>
   );
 }
