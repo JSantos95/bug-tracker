@@ -19,8 +19,9 @@ router.route('/add').post((req, res) => {
     const bugName = req.body.bugName;
     const reporter = req.body.reporter;
     const description = req.body.description;
-    const status = 'unassigned';
+    const status = req.body.assginee ? 'To Do' : 'unassigned';
     const priority = req.body.priority;
+    const assginee = req.body.assginee ? req.body.assginee : '';
 
     const newBug = new Bug({
         bugName,
@@ -28,6 +29,7 @@ router.route('/add').post((req, res) => {
         status,
         priority,
         reporter,
+        assginee,
     })
 
     newBug.save()
