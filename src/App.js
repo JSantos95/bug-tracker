@@ -10,14 +10,16 @@ import CreateUser from './components/createUser';
 
 const App = () => {
   return (
-    <Router>
-      <NavBar />
-      <br/>
-      <Route path="/" exact component={BugList}/>
-      <Route path="/edit/:id" component={EditBug}/>
-      <Route path="/create" component={CreateBug}/>
-      <Route path="/user" component={CreateUser}/>
-    </Router>
+    <div className="container">
+      <Router>
+        <NavBar />
+        <br/>
+        <Route path="/" exact component={BugList}/>
+        <Route path="/edit/:id" component={EditBug}/>
+        <Route path="/create" component={CreateBug}/>
+        <Route path="/user" component={CreateUser}/>
+      </Router>
+    </div>
   );
 }
 
