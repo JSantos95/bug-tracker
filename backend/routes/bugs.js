@@ -49,7 +49,7 @@ router.route('/update/:id').post((req, res) => {
             bug.priority = req.body.priority;
 
             bug.save()
-                .then(() => res.json('Bug added!'))
+                .then(() => res.json('Bug Updated!'))
                 .catch(err => res.status(400).json('Error: ' + err));
         })
         .catch(err => res.status(400).json('Error ' + err));
