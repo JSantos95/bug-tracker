@@ -5,7 +5,7 @@ const Schema = mongoose.Schema;
 const bugSchema = new Schema({
     bugName: { type: String, required: true, },
     description: { type: String, required: false },
-    //status: unassgined -> To Do -> In Progress -> QA -> Complete 
+    //status: Unassgined -> To Do -> In Progress -> QA -> Complete 
     status: { type: String, required: true, },
     //priority: low - med - high
     priority: { type: String, required: true, },
