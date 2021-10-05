@@ -1,12 +1,13 @@
+import axios from "axios";
 import React, { useState, useEffect } from "react";
 
 const CreateBug = () => {
-    const [bugName, setBugName] = useState('')
-    const [username, setUsername] = useState('');
+    const [bugName, setBugName] = useState('');
+    const [username, setUsername] = useState('JSantos');
     const [description, setDescription] = useState('');
     const [assginee, setAssginee] = useState('');
-    const [priority, setPriority] = useState('')
-    const [users, setUsers] = useState(["-", "John", "Harry", "Ashley"]);
+    const [priority, setPriority] = useState('Low');
+    const [users, setUsers] = useState(["-"]);
 
     const onSubmit = (e) => {
         e.preventDefault();
@@ -18,11 +19,17 @@ const CreateBug = () => {
             assginee,
         }
         console.log(bug);
-        window.location = '/'; //back to homepage
+        axios.post('http://localhost:5000/bugs/add', bug)
+            .then((res) => console.log(res.data));
     }
 
     useEffect(() => {
         //call to the the db for the user
+        axios.get('http://localhost:5000/users')
+            .then((res) => {
+                const names = res.data.map(user => user.username);
+                setUsers(["-", ...names]);
+            })
     }, [])
 
     return (
@@ -30,7 +37,7 @@ const CreateBug = () => {
             <h2>Create A New Bug</h2>
             <form onSubmit={onSubmit}>
                 <div className="mb-3">
-                    <label for="bugName">Bug Name: </label>
+                    <label htmlFor="bugName">Bug Name: </label>
                     <input type="text" value={bugName} name="bugName" 
                         className="form-control" placeholder="Enter Bug Name"
                         onChange={e => setBugName(e.target.value)} 
@@ -38,7 +45,7 @@ const CreateBug = () => {
                 </div>
 
                 <div className="mb-3">
-                    <label for="description">Description: </label>
+                    <label htmlFor="description">Description: </label>
                     <input type="text" value={description} name="description" 
                         className="form-control" placeholder="Enter Description"
                         onChange={e => setDescription(e.target.value)} 
