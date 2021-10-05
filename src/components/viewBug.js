@@ -1,9 +1,9 @@
 import React from "react";
 
-const EditBug = () => {
+const ViewBug = () => {
     return (
         <div>List</div>
     )
-}
+} 
 
-export default EditBug;
+export default ViewBug;
