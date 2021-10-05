@@ -1,21 +1,21 @@
-import React, { useState } from "react";
+import React from "react";
+import { Link } from "react-router-dom";
 import classNames from "classnames";
-import ViewBug from "./viewBug";
 
 const Bug = ({ bug }) => {
-    const [viewBug, setViewBug] = useState(false);
 
     const shade = classNames (
         "list-group-item", "list-group-item-action", {
         "list-group-item-success": bug.priority === "Low",
-        "list-group-item-warning": bug.priority === "med",
-        "list-group-item-danger": bug.priority === "high",
+        "list-group-item-warning": bug.priority === "Med",
+        "list-group-item-danger": bug.priority === "High",
     })
+    const link = "/view/" + bug["_id"];
 
     return (
         <div>
             <li className="d-flex flex-row position-relative">
-                <a href="#" className={shade}>{ bug.bugName }</a>
+                <Link className={shade} to={link}>{ bug.bugName }</Link>
             </li>
         </div>
     )
