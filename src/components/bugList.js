@@ -1,5 +1,6 @@
 import axios from "axios";
 import React, { useState, useEffect } from "react";
+import Bug from "./bug";
 
 const BugList = () => {
     const [username, setUsername] = useState('');
@@ -9,7 +10,7 @@ const BugList = () => {
     useEffect(() => {
         axios.get('http://localhost:5000/bugs')
             .then(res => {
-                console.log(typeof res.data);
+                console.log(res.data);
                 setBugs([...res.data]);
             });
     }, [user])
@@ -27,7 +28,7 @@ const BugList = () => {
     }
 
     const bugList = bugs.map((bug) =>
-        <li className="list-group-item" key={bug["_id"]}>{bug.bugName}</li>
+        <Bug key={bug["_id"]} bug={bug} />
     )
 
     return ( 
@@ -50,10 +51,29 @@ const BugList = () => {
                 </div>
                 :
                 <div>
-                    <h2>Bug List</h2>
-                    <ul className="list-group">
-                        { bugList }
-                    </ul>
+                    <h2>Bug List</h2><br/>
+                    <div className="row row-cols-5">
+                        <ul className="list-group col">
+                            <h4>Unassgined</h4>
+                            { bugList }
+                        </ul>
+                        <ul className="list-group col">
+                            <h4>To Do</h4>
+                            { bugList }
+                        </ul>
+                        <ul className="list-group col">
+                            <h4>In Progress</h4>
+                            { bugList }
+                        </ul>
+                        <ul className="list-group col">
+                            <h4>QA</h4>
+                            { bugList }
+                        </ul>
+                        <ul className="list-group col">
+                            <h4>Complete</h4>
+                            { bugList }
+                        </ul>
+                    </div>
                 </div>
             }
         </div>        
