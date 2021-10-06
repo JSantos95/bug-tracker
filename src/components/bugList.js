@@ -52,7 +52,7 @@ const BugList = () => {
             {
                 user.length !== 0 ?
                 <div>
-                    <h2>Sign In to see your bugs!</h2>
+                    <h1>Sign In to see your bugs!</h1>
                     <form onSubmit={signIn}>
                         <div className="mb-3">
                             <label htmlFor="username">Username: </label>
@@ -67,28 +67,39 @@ const BugList = () => {
                 </div>
                 :
                 <div>
-                    <h2>Bug List</h2><br/>
-                    <div className="row row-cols-5">
-                        <ul className="list-group col">
-                            <h4>Unassgined</h4>
-                            { unassignedList }
-                        </ul>
-                        <ul className="list-group col">
-                            <h4>To Do</h4>
-                            { toDOList }
-                        </ul>
-                        <ul className="list-group col">
-                            <h4>In Progress</h4>
-                            { inProgressList }
-                        </ul>
-                        <ul className="list-group col">
-                            <h4>Waiting On QA</h4>
-                            { qaList }
-                        </ul>
-                        <ul className="list-group col">
-                            <h4>Complete</h4>
-                            { completeList }
-                        </ul>
+                    <h1>Bug List</h1>
+                    <br/>
+                    <div className="d-grid gap-5" style={{minHeight: "80vh"}}>
+                        <div className="row row-cols-3 pt-1">
+                            <ul className="list-group col">
+                                <h4 className="align-self-center">To Do</h4>
+                                { toDOList }
+                            </ul>
+                            <ul className="list-group col">
+                                <h4 className="align-self-center">In Progress</h4>
+                                { inProgressList }
+                            </ul>
+                            <ul className="list-group col">
+                                <h4 className="align-self-center">Waiting On QA</h4>
+                                { qaList }
+                            </ul>
+                        </div>
+                        <div className="row row-cols border-top pt-1" style={{mixHeight: "content-fit"}}>
+                            <ul className="list-group col ">
+                                <h4 className="align-self-center">Unassgined</h4>
+                                <div className="row row-cols-3">
+                                    { unassignedList }
+                                </div>
+                            </ul>
+                        </div>
+                        <div className="row row-cols border-top pt-1">
+                            <ul className="list-group col">
+                                <h4 className="align-self-center">Completed</h4>
+                                <div className="row row-cols-3">
+                                    { completeList }
+                                </div>
+                            </ul>
+                        </div>
                     </div>
                 </div>
             }
