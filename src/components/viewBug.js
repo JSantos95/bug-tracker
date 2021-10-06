@@ -91,7 +91,7 @@ const ViewBug = () => {
 
                     <div className="mb-3">
                         <label htmlFor="description">Description: </label>
-                        <input type="text" value={description} name="description" 
+                        <textarea type="text" value={description} name="description" 
                             className="form-control" placeholder="Enter Description"
                             onChange={e => setDescription(e.target.value)} 
                         />
