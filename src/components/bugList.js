@@ -10,7 +10,6 @@ const BugList = () => {
     useEffect(() => {
         axios.get('http://localhost:5000/bugs')
             .then(res => {
-                console.log(res.data);
                 setBugs([...res.data]);
             });
     }, [user])
@@ -20,9 +19,9 @@ const BugList = () => {
 
         axios.get('http://localhost:5000/users')
             .then((res) => {
-                const index = res.data.map(user => user.username).indexOf(username)
-                index !== -1 ?
-                    setUser(res.date[index]) :
+                const index = res.data.map(user => user.username).indexOf(username);
+                index >= 0 ?
+                    setUser(res.data[index]) :
                     console.log("Not a valid username");   
             })
     }
@@ -50,7 +49,7 @@ const BugList = () => {
     return ( 
         <div>
             {
-                user.length !== 0 ?
+                user.length === 0 ?
                 <div>
                     <h1>Sign In to see your bugs!</h1>
                     <form onSubmit={signIn}>
@@ -69,8 +68,8 @@ const BugList = () => {
                 <div>
                     <h1>Bug List</h1>
                     <br/>
-                    <div className="d-grid gap-5" style={{minHeight: "80vh"}}>
-                        <div className="row row-cols-3 pt-1">
+                    <div className="d-grid gap-5">
+                        <div className="row row-cols-3 pt-1" style={{minHeight: "40vh"}}>
                             <ul className="list-group col">
                                 <h4 className="align-self-center">To Do</h4>
                                 { toDOList }
@@ -84,7 +83,7 @@ const BugList = () => {
                                 { qaList }
                             </ul>
                         </div>
-                        <div className="row row-cols border-top pt-1" style={{mixHeight: "content-fit"}}>
+                        <div className="row row-cols border-top pt-1">
                             <ul className="list-group col ">
                                 <h4 className="align-self-center">Unassgined</h4>
                                 <div className="row row-cols-3">
