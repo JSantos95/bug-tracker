@@ -30,7 +30,7 @@ const BugList = () => {
         .filter((bug) => bug.status === "Unassigned")
         .map((bug) => <Bug key={bug["_id"]} bug={bug} />)
 
-    const toDOList = bugs
+    const toDoList = bugs
         .filter((bug) => bug.status === "To Do")
         .map((bug) => <Bug key={bug["_id"]} bug={bug} />)
 
@@ -72,7 +72,7 @@ const BugList = () => {
                         <div className="row row-cols-3 pt-1" style={{minHeight: "40vh"}}>
                             <ul className="list-group col">
                                 <h4 className="align-self-center">To Do</h4>
-                                { toDOList }
+                                { toDoList }
                             </ul>
                             <ul className="list-group col">
                                 <h4 className="align-self-center">In Progress</h4>
