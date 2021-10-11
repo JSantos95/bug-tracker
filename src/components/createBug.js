@@ -4,6 +4,7 @@ import React, { useState, useEffect } from "react";
 const CreateBug = () => {
     const [bugName, setBugName] = useState('');
     const [username, setUsername] = useState('JSantos');
+    const [type, setType] = useState('Bug')
     const [description, setDescription] = useState('');
     const [assginee, setAssginee] = useState('');
     const [priority, setPriority] = useState('Low');
@@ -14,6 +15,7 @@ const CreateBug = () => {
         const bug = {
             bugName,
             reporter: username,
+            type,
             description,
             priority,
             assginee,
@@ -44,6 +46,17 @@ const CreateBug = () => {
                         className="form-control" placeholder="Enter Bug Name"
                         onChange={e => setBugName(e.target.value)} 
                     />
+                </div>
+
+                <div className="mb-3">
+                    <label>Type: </label>
+                    <select className="form-control" 
+                        onChange={e => setType(e.target.value)}
+                    >
+                        <option value={"Bug"}>Bug</option>
+                        <option value={"Task"}>Task</option>
+                        <option value={"Feature"}>Feature</option>
+                    </select>
                 </div>
 
                 <div className="mb-3">

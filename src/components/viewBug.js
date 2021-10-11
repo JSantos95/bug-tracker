@@ -5,6 +5,7 @@ import { useParams } from "react-router";
 const ViewBug = () => {
     const [bugName, setBugName] = useState('');
     const [username, setUsername] = useState('JSantos');
+    const [type, setType] = useState('Bug');
     const [description, setDescription] = useState('');
     const [assginee, setAssginee] = useState('');
     const [status, setStatus] = useState('');
@@ -18,6 +19,7 @@ const ViewBug = () => {
         axios.get(('http://localhost:5000/bugs/' + id))
             .then((result) => { 
                 setBugName(result.data.bugName);
+                setType(result.data.type);
                 setDescription(result.data.description);
                 setPriority(result.data.priority);
                 setStatus(result.data.status);
@@ -51,6 +53,7 @@ const ViewBug = () => {
         const bug = {
             bugName,
             reporter: username,
+            type,
             description,
             status,
             priority,
@@ -87,6 +90,17 @@ const ViewBug = () => {
                             className="form-control" placeholder="Enter Bug Name"
                             onChange={e => setBugName(e.target.value)} 
                         />
+                    </div>
+
+                    <div className="mb-3">
+                        <label>Type: </label>
+                        <select className="form-control" 
+                            onChange={e => setType(e.target.value)}
+                        >
+                            <option value={"Bug"}>Bug</option>
+                            <option value={"Task"}>Task</option>
+                            <option value={"Feature"}>Feature</option>
+                        </select>
                     </div>
 
                     <div className="mb-3">
