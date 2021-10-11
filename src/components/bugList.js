@@ -69,7 +69,7 @@ const BugList = () => {
                     <h1>Bug List</h1>
                     <br/>
                     <div className="d-grid gap-5">
-                        <div className="row row-cols-3 pt-1" style={{minHeight: "40vh"}}>
+                        <div className="row row-cols-3 pt-1" style={{minHeight: "35vh"}}>
                             <ul className="list-group col">
                                 <h4 className="align-self-center">To Do</h4>
                                 { toDoList }
