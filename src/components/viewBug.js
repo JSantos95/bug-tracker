@@ -78,10 +78,18 @@ const ViewBug = () => {
         <div>
             { 
                 viewMode ? 
-                <div>
-                    <h1> { bugName } </h1>
-                    <p> { description } </p>
-                    <button type="button" className="btn btn-primary" onClick={() => setMode(false)}>Edit</button>
+                <div className="overflow-hidden">
+                    <div className="row gy-2">
+                        <h1> { bugName } </h1>
+                        <div className="row row-cols-auto fs-4">
+                            <div className="col">Type: { type }</div>
+                            <div className="col">Priority: { priority }</div>
+                        </div>
+                        <div>
+                            <p className="fs-5">Description: <br/> { description } </p>
+                            <button type="button" className="btn btn-primary" onClick={() => setMode(false)}>Edit</button>
+                        </div>
+                    </div>
                 </div> : 
                 <form onSubmit={saveBug}>
                     <div className="mb-3">
@@ -95,6 +103,7 @@ const ViewBug = () => {
                     <div className="mb-3">
                         <label>Type: </label>
                         <select className="form-control" 
+                            value={type}
                             onChange={e => setType(e.target.value)}
                         >
                             <option value={"Bug"}>Bug</option>
