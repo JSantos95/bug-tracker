@@ -37,58 +37,60 @@ const CreateBug = () => {
     }, [])
 
     return (
-        <div>
-            <h2>Create A New Bug</h2>
-            <form onSubmit={onSubmit}>
-                <div className="mb-3">
-                    <label htmlFor="bugName">Bug Name: </label>
-                    <input type="text" value={bugName} name="bugName" 
-                        className="form-control" placeholder="Enter Bug Name"
-                        onChange={e => setBugName(e.target.value)} 
-                    />
-                </div>
+        <div className="container">
+            <h2 className="col-5 mx-auto">Create A New Bug</h2>
+            <div className="container">
+                <form onSubmit={onSubmit} className="col-5 mx-auto">
+                    <div className="mb-3">
+                        <label htmlFor="bugName">Bug Name: </label>
+                        <input type="text" value={bugName} name="bugName" 
+                            className="form-control" placeholder="Enter Bug Name"
+                            onChange={e => setBugName(e.target.value)} 
+                        />
+                    </div>
 
-                <div className="mb-3">
-                    <label>Type: </label>
-                    <select className="form-control" 
-                        onChange={e => setType(e.target.value)}
-                    >
-                        <option value={"Bug"}>Bug</option>
-                        <option value={"Task"}>Task</option>
-                        <option value={"Feature"}>Feature</option>
-                    </select>
-                </div>
+                    <div className="mb-3">
+                        <label>Type: </label>
+                        <select className="form-control" 
+                            onChange={e => setType(e.target.value)}
+                        >
+                            <option value={"Bug"}>Bug</option>
+                            <option value={"Task"}>Task</option>
+                            <option value={"Feature"}>Feature</option>
+                        </select>
+                    </div>
 
-                <div className="mb-3">
-                    <label htmlFor="description">Description: </label>
-                    <textarea type="text" value={description} name="description" 
-                        className="form-control" placeholder="Enter Description"
-                        onChange={e => setDescription(e.target.value)} 
-                    />
-                </div>
+                    <div className="mb-3">
+                        <label htmlFor="description">Description: </label>
+                        <textarea type="text" value={description} name="description" 
+                            className="form-control" placeholder="Enter Description"
+                            onChange={e => setDescription(e.target.value)} 
+                        />
+                    </div>
 
-                <div className="mb-3">
-                    <label>Priority: </label>
-                    <select className="form-control" 
-                        onChange={e => setPriority(e.target.value)}
-                    >
-                        <option value={"Low"}>Low</option>
-                        <option value={"Med"}>Med</option>
-                        <option value={"High"}>High</option>
-                    </select>
-                </div>
+                    <div className="mb-3">
+                        <label>Priority: </label>
+                        <select className="form-control" 
+                            onChange={e => setPriority(e.target.value)}
+                        >
+                            <option value={"Low"}>Low</option>
+                            <option value={"Med"}>Med</option>
+                            <option value={"High"}>High</option>
+                        </select>
+                    </div>
 
-                <div className='mb-3'>
-                    <label>Assginee: (Optional)</label>
-                    <select className="form-control"
-                        onChange={e => setAssginee(e.target.value)}
-                    >
-                        { users.map((user, index) => <option key={index}>{user}</option>) }
-                    </select>
-                </div>
+                    <div className='mb-3'>
+                        <label>Assginee: (Optional)</label>
+                        <select className="form-control"
+                            onChange={e => setAssginee(e.target.value)}
+                        >
+                            { users.map((user, index) => <option key={index}>{user}</option>) }
+                        </select>
+                    </div>
 
-                <input className="btn btn-primary" type="submit"/>
-            </form>
+                    <input className="btn btn-primary" type="submit"/>
+                </form>
+            </div>
         </div>
     )
 }
