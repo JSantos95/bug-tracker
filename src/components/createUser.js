@@ -1,11 +1,16 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import axios from "axios";
 
 // if newUser prop is true this form will register a user, else for login 
-const CreateUser = (props) => {
+const CreateUser = ({ newUser }) => {
     const [username, setUsername] = useState('');
     const [email, setEmail] = useState('');
     const [password, setPassword] = useState('');
+    const [isNew, setNew] = useState(newUser);
+
+    useEffect(() => {
+        setNew(newUser);
+    }, [newUser])
 
     const authentication = (e) => {
         e.preventDefault();
@@ -15,7 +20,7 @@ const CreateUser = (props) => {
         }
         console.log(user);
 
-        if(props.newUser) {
+        if(isNew) {
             user.email = email;
             axios.post('http://localhost:5000/api/auth/register', user)
             .then((res) => console.log(res.data))
@@ -28,11 +33,11 @@ const CreateUser = (props) => {
     return (
         <div className="container-fluid">
             <div className="col-5 mx-auto">
-                { props.newUser ? <h2>Create New Account</h2> : <h2>Log In</h2> }
+                { isNew ? <h2>Create New Account</h2> : <h2>Log In</h2> }
                 <div className="container-fluid">
                     <form onSubmit={authentication}>
                         {
-                            props.newUser && 
+                            isNew && 
                             <div className="mb-3">
                                 <label htmlFor="email">Email: </label>
                                 <input type="email" value={email} name="email" 
@@ -58,14 +63,22 @@ const CreateUser = (props) => {
                                 onChange={e => setPassword(e.target.value)} 
                             />
                             {
-                                props.newUser && 
+                                isNew ? 
                                 <span id="passwordHelpInline" className="form-text">
                                     Must at least 5 characters long
-                                </span>
+                                </span> :
+                                <button type="button" className="btn btn-sm btn-link text-decoration-none">
+                                    Forgot Password?
+                                </button>
                             }
                         </div>
 
-                        <input className="btn btn-primary" type="submit"/>
+                        <div className="d-flex justify-content-between">
+                            <input className="btn btn-primary" type="submit"/>
+                            <button type="button" className="btn btn-link text-decoration-none" onClick={() => setNew(!isNew)}>
+                                    {isNew ? "Have An Account?" : "Create New?"}
+                            </button>
+                        </div>
                     </form>
                 </div>
             </div>
