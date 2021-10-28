@@ -39,19 +39,19 @@ const CreateUser = ({ newUser }) => {
                         {
                             isNew && 
                             <div className="mb-3">
-                                <label htmlFor="email">Email: </label>
-                                <input type="email" value={email} name="email" 
-                                    className="form-control" placeholder="Enter Email"
-                                    onChange={e => setEmail(e.target.value)} 
+                                <label htmlFor="username">Username: </label>
+                                <input type="text" value={username} name="username" 
+                                    className="form-control" placeholder="Enter Username"
+                                    onChange={e => setUsername(e.target.value)} 
                                 />
                             </div>
                         }
 
                         <div className="mb-3">
-                            <label htmlFor="username">Username: </label>
-                            <input type="text" value={username} name="username" 
-                                className="form-control" placeholder="Enter Username"
-                                onChange={e => setUsername(e.target.value)} 
+                            <label htmlFor="email">Email: </label>
+                            <input type="email" value={email} name="email" 
+                                className="form-control" placeholder="Enter Email"
+                                onChange={e => setEmail(e.target.value)} 
                             />
                         </div>
 
@@ -76,7 +76,7 @@ const CreateUser = ({ newUser }) => {
                         <div className="d-flex justify-content-between">
                             <input className="btn btn-primary" type="submit"/>
                             <button type="button" className="btn btn-link text-decoration-none" onClick={() => setNew(!isNew)}>
-                                    {isNew ? "Have An Account?" : "Create New?"}
+                                    { isNew ? "Have An Account?" : "Create New?" }
                             </button>
                         </div>
                     </form>
