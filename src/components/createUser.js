@@ -15,18 +15,30 @@ const CreateUser = ({ newUser }) => {
     const authentication = (e) => {
         e.preventDefault();
         const user = {
-            username,
+            email,
             password,
         }
         console.log(user);
 
         if(isNew) {
-            user.email = email;
+            //create new user
+            this.username = username;
             axios.post('http://localhost:5000/api/auth/register', user)
-            .then((res) => console.log(res.data))
+            .then((res) => {
+                console.log(res.data);
+                sessionStorage.setItem('token', res.data.token);
+                window.location = '/bug';
+            })
+            .catch((err) => console.log(err))
         } else {
+            //login
             axios.post('http://localhost:5000/api/auth/login', user)
-            .then((res) => console.log(res.data))
+            .then((res) => {
+                console.log(res.data);
+                sessionStorage.setItem('token', res.data.token);
+                window.location = '/bug';
+            })
+            .catch((err) => console.log(err))
         }
     }
 
@@ -59,7 +71,7 @@ const CreateUser = ({ newUser }) => {
                             <label htmlFor="password">Password: </label>
                             <input type="password" value={password} name="password" 
                                 className="form-control" placeholder="Enter Password"
-                                minlength="5" required
+                                minLength="5" required
                                 onChange={e => setPassword(e.target.value)} 
                             />
                             {
