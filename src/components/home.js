@@ -3,7 +3,7 @@ import { Link } from "react-router-dom";
 
 const Home = () => {
     return (
-        <div classname="container">
+        <div className="container">
             <div className="d-flex flex-column">
                 <h1 className="display-1 mx-auto">Bug Tracker</h1>
                 <p className="mx-auto">Track All Of Your Bugs/Tasks Here!</p>
