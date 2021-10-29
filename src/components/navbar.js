@@ -1,7 +1,14 @@
-import React from "react";
+import React, { useState } from "react";
 import { Link } from "react-router-dom";
 
 const NavBar = () => {
+    const [isToken, setIsToken] = useState(sessionStorage.token !== undefined);
+
+    const removeToken = () => {
+        sessionStorage.clear();
+        setIsToken(false);
+    }
+
     return (
         <nav className="navbar navbar-expand-lg navbar-dark bg-dark">
             <div className="container-fluid">
@@ -18,11 +25,19 @@ const NavBar = () => {
                             <Link className="nav-link" to="/create">Create Bug</Link>
                         </li>
                     </ul>
-                    <Link to="/user" class="d-flex">
-                        <button type="button" class="btn btn-primary">
-                            Login/Register 
-                        </button>
-                    </Link>
+                    {
+                        isToken ? 
+                        <Link to="/" className="d-flex" onClick={removeToken}>
+                            <button type="button" className="btn btn-primary">
+                                Logout 
+                            </button>
+                        </Link> :
+                        <Link to="/user" className="d-flex">
+                            <button type="button" className="btn btn-primary">
+                                Login/Register 
+                            </button>
+                        </Link> 
+                    }
                 </div>
             </div>
         </nav>
