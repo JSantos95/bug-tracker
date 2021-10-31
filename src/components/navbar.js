@@ -5,7 +5,7 @@ const NavBar = () => {
     const [isToken, setIsToken] = useState(sessionStorage.token !== undefined);
 
     const removeToken = () => {
-        sessionStorage.clear();
+        sessionStorage.removeItem("token");
         setIsToken(false);
     }
 
