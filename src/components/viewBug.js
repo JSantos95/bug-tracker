@@ -4,7 +4,7 @@ import { useParams } from "react-router";
 
 const ViewBug = () => {
     const [bugName, setBugName] = useState('');
-    const [username, setUsername] = useState('JSantos');
+    const [reporter, setReporter] = useState('');
     const [type, setType] = useState('Bug');
     const [description, setDescription] = useState('');
     const [assginee, setAssginee] = useState('');
@@ -14,7 +14,7 @@ const ViewBug = () => {
     const [viewMode, setMode] = useState(true);
     let { id } = useParams();
 
-    //call to the db for user and bug info
+    //call to the db for users and bug info
     useEffect(() => {
         axios.get(('http://localhost:5000/bugs/' + id))
             .then((result) => { 
@@ -23,6 +23,7 @@ const ViewBug = () => {
                 setDescription(result.data.description);
                 setPriority(result.data.priority);
                 setStatus(result.data.status);
+                setReporter(result.data.reporter);
                 result.data.assginee && setAssginee(result.data.assginee);     
             })
             .catch((err) => { console.log(err); });
@@ -52,7 +53,7 @@ const ViewBug = () => {
         e.preventDefault();
         const bug = {
             bugName,
-            reporter: username,
+            reporter,
             type,
             description,
             status,
