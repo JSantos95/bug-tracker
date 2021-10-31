@@ -7,8 +7,8 @@ const Home = () => {
             <div className="d-flex flex-column">
                 <h1 className="display-1 mx-auto">Bug Tracker</h1>
                 <p className="mx-auto">Track All Of Your Bugs/Tasks Here!</p>
-                <Link to="/user" class="mx-auto">
-                    <button type="button" class="btn btn-primary">Sign Up</button>
+                <Link to="/user" className="mx-auto">
+                    <button type="button" className="btn btn-primary">Sign Up</button>
                 </Link>
             </div>
         </div>
