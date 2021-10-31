@@ -3,8 +3,8 @@ import React, { useState, useEffect } from "react";
 
 const CreateBug = () => {
     const [bugName, setBugName] = useState('');
-    const [username, setUsername] = useState('JSantos');
-    const [type, setType] = useState('Bug')
+    const [username, setUsername] = useState('');
+    const [type, setType] = useState('Bug');
     const [description, setDescription] = useState('');
     const [assginee, setAssginee] = useState('');
     const [priority, setPriority] = useState('Low');
@@ -22,17 +22,22 @@ const CreateBug = () => {
         }
         console.log(bug);
         axios.post('http://localhost:5000/bugs/add', bug)
-            .then((res) => console.log(res.data));
-
-        window.location = '/';
+            .then((res) => console.log(res.data))
+            .catch((err) => console.log("no user",err));
+        window.location = '/bug';
     }
 
     useEffect(() => {
-        //call to the the db for the user
-        axios.get('http://localhost:5000/users')
+        //get all users
+        axios.get('http://localhost:5000/api/auth')
             .then((res) => {
                 const names = res.data.map(user => user.username);
                 setUsers(["-", ...names]);
+            })
+        //get user info
+        axios.get('http://localhost:5000/api/private', {headers: {Authorization: `Bearer ${sessionStorage.token}`}})
+            .then((res) => {
+                setUsername(res.data.data.username);
             })
     }, [])
 
