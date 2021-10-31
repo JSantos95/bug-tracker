@@ -27,7 +27,7 @@ const ViewBug = () => {
             })
             .catch((err) => { console.log(err); });
 
-        axios.get('http://localhost:5000/users')
+        axios.get('http://localhost:5000/api/auth')
             .then((res) => {
                 const names = res.data.map(user => user.username);
                 setUsers(["-", ...names]);
@@ -78,7 +78,7 @@ const ViewBug = () => {
         <div>
             { 
                 viewMode ? 
-                <div className="overflow-hidden">
+                <div className="mx-auto col-5 overflow-hidden">
                     <div className="row gy-2">
                         <h1> { bugName } </h1>
                         <div className="row row-cols-auto fs-4">
