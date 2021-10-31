@@ -4,27 +4,19 @@ import Bug from "./bug";
 
 const BugList = () => {
     const [username, setUsername] = useState('');
-    const [user, setUser] = useState([]);
     const [bugs, setBugs] = useState([]);
-
+    
     useEffect(() => {
         axios.get('http://localhost:5000/bugs')
             .then(res => {
                 setBugs([...res.data]);
-            });
-    }, [user])
-
-    const signIn = (e) => {
-        e.preventDefault();
-
-        axios.get('http://localhost:5000/users')
-            .then((res) => {
-                const index = res.data.map(user => user.username).indexOf(username);
-                index >= 0 ?
-                    setUser(res.data[index]) :
-                    console.log("Not a valid username");   
             })
-    }
+            .catch((err) => console.log(err));
+        axios.get('http://localhost:5000/api/private', {headers: {Authorization: `Bearer ${sessionStorage.token}`}})
+            .then((res) => {
+                setUsername(res.data.data.username);
+            })
+    }, [])
 
     const unassignedList = bugs
         .filter((bug) => bug.status === "Unassigned")
@@ -49,24 +41,18 @@ const BugList = () => {
     return ( 
         <div>
             {
-                user.length === 0 ?
-                <div>
-                    <h1>Sign In to see your bugs!</h1>
-                    <form onSubmit={signIn}>
-                        <div className="mb-3">
-                            <label htmlFor="username">Username: </label>
-                            <input type="text" value={username} name="username" 
-                                className="form-control" placeholder="Enter Username"
-                                onChange={e => setUsername(e.target.value)} 
-                            />
-                        </div>
-
-                        <input className="btn btn-primary" type="submit" value="Sign-In"/>
-                    </form>
+                !sessionStorage.token ?
+                <div className="container-fluid">
+                    <div className="col-5 mx-auto">
+                        <h1>Sign In to see your bugs!</h1>
+                        <button className="btn btn-primary" onClick={() => window.location='/user'}>
+                            Sign In
+                        </button>
+                    </div>
                 </div>
                 :
                 <div>
-                    <h1>Bug List</h1>
+                    <h1 className="text-capitalize">{ username } Bug List</h1>
                     <br/>
                     <div className="d-grid gap-5">
                         <div className="row row-cols-3 pt-1" style={{minHeight: "35vh"}}>
