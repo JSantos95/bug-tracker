@@ -23,7 +23,7 @@ const CreateUser = ({ newUser }) => {
         if(isNew) {
             //create new user
             this.username = username;
-            axios.post('http://localhost:5000/api/auth/register', user)
+            axios.post('https://bug-tracker-project1.herokuapp.com/api/auth/register', user)
             .then((res) => {
                 console.log(res.data);
                 sessionStorage.setItem('token', res.data.token);
@@ -32,7 +32,7 @@ const CreateUser = ({ newUser }) => {
             .catch((err) => console.log(err))
         } else {
             //login
-            axios.post('http://localhost:5000/api/auth/login', user)
+            axios.post('https://bug-tracker-project1.herokuapp.com/api/auth/login', user)
             .then((res) => {
                 console.log(res.data);
                 sessionStorage.setItem('token', res.data.token);

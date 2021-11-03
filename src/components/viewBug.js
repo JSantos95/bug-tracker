@@ -16,7 +16,7 @@ const ViewBug = () => {
 
     //call to the db for users and bug info
     useEffect(() => {
-        axios.get(('http://localhost:5000/bugs/' + id))
+        axios.get(('https://bug-tracker-project1.herokuapp.com/bugs/' + id))
             .then((result) => { 
                 setBugName(result.data.bugName);
                 setType(result.data.type);
@@ -28,7 +28,7 @@ const ViewBug = () => {
             })
             .catch((err) => { console.log(err); });
 
-        axios.get('http://localhost:5000/api/auth')
+        axios.get('https://bug-tracker-project1.herokuapp.com/api/auth')
             .then((res) => {
                 const names = res.data.map(user => user.username);
                 setUsers(["-", ...names]);
@@ -61,7 +61,7 @@ const ViewBug = () => {
             assginee,
         }
         console.log(bug);
-        axios.post('http://localhost:5000/bugs/update/' + id, bug)
+        axios.post('https://bug-tracker-project1.herokuapp.com/bugs/update/' + id, bug)
             .then((res) => console.log(res.data))
             .catch((err) => { console.log(err); });
         
@@ -69,7 +69,7 @@ const ViewBug = () => {
     }
 
     const deleteBug = () => {
-        axios.delete('http://localhost:5000/bugs/' + id,)
+        axios.delete('https://bug-tracker-project1.herokuapp.com/bugs/' + id,)
             .then((res) => console.log(res.data));
 
         window.location = "/";

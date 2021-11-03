@@ -7,12 +7,12 @@ const BugList = () => {
     const [bugs, setBugs] = useState([]);
     
     useEffect(() => {
-        axios.get('http://localhost:5000/bugs')
+        axios.get('https://bug-tracker-project1.herokuapp.com/bugs')
             .then(res => {
                 setBugs([...res.data]);
             })
             .catch((err) => console.log(err));
-        axios.get('http://localhost:5000/api/private', {headers: {Authorization: `Bearer ${sessionStorage.token}`}})
+        axios.get('https://bug-tracker-project1.herokuapp.com/api/private', {headers: {Authorization: `Bearer ${sessionStorage.token}`}})
             .then((res) => {
                 setUsername(res.data.data.username);
             })

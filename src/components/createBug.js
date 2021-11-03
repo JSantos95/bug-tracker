@@ -21,7 +21,7 @@ const CreateBug = () => {
             assginee,
         }
         console.log(bug);
-        axios.post('http://localhost:5000/bugs/add', bug)
+        axios.post('https://bug-tracker-project1.herokuapp.com/bugs/add', bug)
             .then((res) => console.log(res.data))
             .catch((err) => console.log("no user",err));
         window.location = '/bug';
@@ -29,13 +29,13 @@ const CreateBug = () => {
 
     useEffect(() => {
         //get all users
-        axios.get('http://localhost:5000/api/auth')
+        axios.get('https://bug-tracker-project1.herokuapp.com/api/auth')
             .then((res) => {
                 const names = res.data.map(user => user.username);
                 setUsers(["-", ...names]);
             })
         //get user info
-        axios.get('http://localhost:5000/api/private', {headers: {Authorization: `Bearer ${sessionStorage.token}`}})
+        axios.get('https://bug-tracker-project1.herokuapp.com/api/private', {headers: {Authorization: `Bearer ${sessionStorage.token}`}})
             .then((res) => {
                 setUsername(res.data.data.username);
             })
