@@ -79,7 +79,7 @@ const ViewBug = () => {
         <div>
             { 
                 viewMode ? 
-                <div className="mx-auto col-5 overflow-hidden">
+                <div className="mx-auto col-7 overflow-hidden">
                     <div className="row gy-2">
                         <h1> { bugName } </h1>
                         <div className="row row-cols-auto fs-4">
