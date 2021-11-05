@@ -16,7 +16,7 @@ const NavBar = () => {
                 <button className="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
                     <span className="navbar-toggler-icon"></span>
                 </button>
-                <div className="collapse navbar-collapse justify-content-between" id="navbarSupportedContent">
+                <div className={`collapse navbar-collapse ${isToken ? "justify-content-between" : "justify-content-end"}`}  id="navbarSupportedContent">
                     {
                         isToken &&
                         <ul className="navbar-nav mr-auto mb-2 mb-lg-0">
@@ -35,7 +35,7 @@ const NavBar = () => {
                                 Logout 
                             </button>
                         </Link> :
-                        <Link to="/user" className="d-flex align-self-end">
+                        <Link to="/user" className="d-flex">
                             <button type="button" className="btn btn-primary">
                                 Login/Register 
                             </button>
