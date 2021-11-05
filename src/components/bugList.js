@@ -1,10 +1,12 @@
 import axios from "axios";
 import React, { useState, useEffect } from "react";
+import { Redirect } from "react-router";
 import Bug from "./bug";
 
 const BugList = () => {
     const [username, setUsername] = useState('');
     const [bugs, setBugs] = useState([]);
+    const [toAuth, setToAuth] = useState(false);
     
     useEffect(() => {
         axios.get('https://bug-tracker-project1.herokuapp.com/bugs')
@@ -40,12 +42,13 @@ const BugList = () => {
 
     return ( 
         <div>
+            {toAuth && <Redirect to="/user" />}
             {
                 !sessionStorage.token ?
                 <div className="container-fluid">
                     <div className="col-5 mx-auto">
                         <h1>Sign In to see your bugs!</h1>
-                        <button className="btn btn-primary" onClick={() => window.location='/user'}>
+                        <button className="btn btn-primary" onClick={setToAuth(true)}>
                             Sign In
                         </button>
                     </div>
