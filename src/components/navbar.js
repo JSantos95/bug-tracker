@@ -35,7 +35,7 @@ const NavBar = () => {
                                 Logout 
                             </button>
                         </Link> :
-                        <Link to="/user" className="d-flex">
+                        <Link to="/user" className="d-flex align-self-end">
                             <button type="button" className="btn btn-primary">
                                 Login/Register 
                             </button>
