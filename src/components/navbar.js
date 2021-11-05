@@ -17,14 +17,17 @@ const NavBar = () => {
                     <span className="navbar-toggler-icon"></span>
                 </button>
                 <div className="collapse navbar-collapse justify-content-between" id="navbarSupportedContent">
-                    <ul className="navbar-nav mr-auto mb-2 mb-lg-0">
-                        <li className="nav-item">
-                            <Link className="nav-link" to="/bug">Bugs</Link>
-                        </li>
-                        <li className="nav-item">
-                            <Link className="nav-link" to="/create">Create Bug</Link>
-                        </li>
-                    </ul>
+                    {
+                        isToken &&
+                        <ul className="navbar-nav mr-auto mb-2 mb-lg-0">
+                            <li className="nav-item">
+                                <Link className="nav-link" to="/bug">Bugs</Link>
+                            </li>
+                            <li className="nav-item">
+                                <Link className="nav-link" to="/create">Create Bug</Link>
+                            </li>
+                        </ul>
+                    }
                     {
                         isToken ? 
                         <Link to="/" className="d-flex" onClick={removeToken}>
