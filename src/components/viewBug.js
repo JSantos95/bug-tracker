@@ -72,7 +72,7 @@ const ViewBug = () => {
         axios.delete('https://bug-tracker-project1.herokuapp.com/bugs/' + id,)
             .then((res) => console.log(res.data));
 
-        window.location = "/";
+        window.location = "/bug";
     }
 
     return (
