@@ -9,15 +9,16 @@ const BugList = () => {
     const [toAuth, setToAuth] = useState(false);
     
     useEffect(() => {
-        axios.get('https://bug-tracker-project1.herokuapp.com/bugs')
-            .then(res => {
-                setBugs([...res.data]);
-            })
-            .catch((err) => console.log(err));
         axios.get('https://bug-tracker-project1.herokuapp.com/api/private', {headers: {Authorization: `Bearer ${sessionStorage.token}`}})
             .then((res) => {
                 setUsername(res.data.data.username);
+                axios.get(`https://bug-tracker-project1.herokuapp.com/bugs/user/${res.data.data.username}`)
+                    .then(res => {
+                        setBugs([...res.data]);
+                    })
+                    .catch((err) => console.log(err));
             })
+            .catch((err) => console.log(err));
     }, [])
 
     const unassignedList = bugs
