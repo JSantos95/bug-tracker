@@ -75,13 +75,15 @@ const CreateUser = ({ newUser }) => {
                                 onChange={e => setPassword(e.target.value)} 
                             />
                             {
-                                isNew ? 
+                                isNew && 
                                 <span id="passwordHelpInline" className="form-text">
                                     Must at least 5 characters long
-                                </span> :
+                                </span> 
+                                /* :
                                 <button type="button" className="btn btn-sm btn-link text-decoration-none">
                                     Forgot Password?
-                                </button>
+                                </button> 
+                                */
                             }
                         </div>
 
