@@ -1,6 +1,7 @@
 import React from 'react';
 import { BrowserRouter as Router, Route} from "react-router-dom";
 import "bootstrap/dist/css/bootstrap.min.css";
+import 'font-awesome/css/font-awesome.min.css';
 
 import NavBar from './components/navbar';
 import Home from './components/home';
@@ -11,10 +12,9 @@ import CreateUser from './components/createUser';
 
 const App = () => {
   return (
-    <div className="container">
+    <div>
       <Router>
         <NavBar />
-        <br/>
         <Route path="/" exact component={Home}/>
         <Route path="/bug" component={BugList}/>
         <Route path="/view/:id" component={ViewBug}/> 
