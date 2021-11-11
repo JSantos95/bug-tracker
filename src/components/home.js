@@ -44,11 +44,11 @@ const Home = () => {
                 <div className="d-flex mt-5 mb-5 flex-column">
                     <h1 className="mx-auto">Features Coming Soon</h1>
                     <p className="mx-auto">Here are some features we're working on: </p>
-                    <ul className="mx-auto">
-                        <li>Password Reset</li>
-                        <li>Groups to code with your team/company</li>
-                        <li>Due Dates</li>
-                        <li>Email Noifications</li>
+                    <ul className="mx-auto list-group list-group-flush">
+                        <li className="list-group-item">Password Reset</li>
+                        <li className="list-group-item">Groups to code with your team/company</li>
+                        <li className="list-group-item">Due Dates</li>
+                        <li className="list-group-item">Email Noifications</li>
                     </ul>
                 </div>
             </section>
