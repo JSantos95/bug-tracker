@@ -46,7 +46,7 @@ const BugList = () => {
             {toAuth && <Redirect to="/user" />}
             {
                 !sessionStorage.token ?
-                <div className="container-fluid">
+                <div className="container">
                     <div className="col-5 mx-auto">
                         <h1>Sign In to see your bugs!</h1>
                         <button className="btn btn-primary" onClick={setToAuth(true)}>
@@ -55,7 +55,7 @@ const BugList = () => {
                     </div>
                 </div>
                 :
-                <div>
+                <div className="container mt-4">
                     <h1 className="text-capitalize">{ username } Bug List</h1>
                     <br/>
                     <div className="d-grid gap-5">

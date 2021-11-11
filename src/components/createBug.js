@@ -56,7 +56,7 @@ const CreateBug = () => {
                         </button>
                     </div>
                 </div> :
-                <div className="container">
+                <div className="container mt-4">
                     <h2 className="col-5 mx-auto">Create A New Bug</h2>
                     <div className="container">
                         <form onSubmit={onSubmit} className="col-5 mx-auto">
