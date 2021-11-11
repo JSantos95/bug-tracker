@@ -18,7 +18,7 @@ const Home = () => {
                     <div className="row">
                         <div className="col-lg-4">
                             <div className="features-icons-item mx-auto mb-5 mb-lg-0 mb-lg-3">
-                                <div className="features-icons-icon d-flex"><i className="fas fa-plus-square"></i></div>
+                                <div className="features-icons-icon d-flex"></div>
                                 <h3>Create</h3>
                                 <p className="lead mb-0">Create and Maintain Bugs, Tasks, or Features</p>
                             </div>
@@ -48,7 +48,7 @@ const Home = () => {
                         <li>Password Reset</li>
                         <li>Groups to code with your team/company</li>
                         <li>Due Dates</li>
-                        <li>Email Noifications <i className="fas fa-plus-square"></i></li>
+                        <li>Email Noifications</li>
                     </ul>
                 </div>
             </section>
