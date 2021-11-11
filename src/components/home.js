@@ -25,14 +25,14 @@ const Home = () => {
                             <div className="features-icons-item mx-auto mb-5 mb-lg-0 mb-lg-3">
                                 <div className="mx-auto mb-2"><FontAwesomeIcon icon="bug" size="6x" /></div>
                                 <h3>Create</h3>
-                                <p className="lead mb-0">Create and Maintain Bugs, Tasks, or Features</p>
+                                <p className="lead mb-0">Create and Catalog your Bugs, Tasks, or Features</p>
                             </div>
                         </div>
                         <div className="col-lg-4">
                             <div className="features-icons-item mx-auto mb-5 mb-lg-0 mb-lg-3">
                                 <div className="mx-auto mb-2"><FontAwesomeIcon icon="layer-group" size="6x" /></div>
                                 <h3>Maintain</h3>
-                                <p className="lead mb-0">Save the progress of your bug through 5 development stages</p>
+                                <p className="lead mb-0">Track and Save the progress of your bug through 5 development stages</p>
                             </div>
                         </div>
                         <div className="col-lg-4">
