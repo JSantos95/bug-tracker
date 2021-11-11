@@ -45,6 +45,7 @@ const Home = () => {
                     <h1 className="mx-auto">Features Coming Soon</h1>
                     <p className="mx-auto">Here are some features we're working on: </p>
                     <ul className="mx-auto list-group list-group-flush">
+                        <li className="list-group-item">User Account Features</li>
                         <li className="list-group-item">Password Reset</li>
                         <li className="list-group-item">Groups to code with your team/company</li>
                         <li className="list-group-item">Due Dates</li>
