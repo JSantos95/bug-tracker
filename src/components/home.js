@@ -1,5 +1,10 @@
 import React from "react";
 import { Link } from "react-router-dom";
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+import { library } from "@fortawesome/fontawesome-svg-core";
+import { faBug, faUser, faLayerGroup } from "@fortawesome/free-solid-svg-icons";
+
+library.add(faBug, faUser, faLayerGroup);
 
 const Home = () => {
     return (
@@ -7,9 +12,9 @@ const Home = () => {
             <div className="masthead" style={{ height: "70vh", display: "grid", placeItems: "center"}}>
                 <div className="d-flex mb-5 flex-column" style={{zIndex: "1100"}}>
                     <h1 className="mx-auto">Bug Tracker</h1>
-                    <p className="mx-auto">Track All Of Your Bugs/Tasks Here!</p>
+                    <p className="mx-auto">Track All Of Your Bugs And Tasks Here!</p>
                     <Link className="mx-auto" to="/user">
-                        <button type="button" className="btn btn-primary">Sign Up</button>
+                        <button type="button" className="btn btn-primary btn-lg">Sign Up</button>
                     </Link>
                 </div>
             </div>
@@ -18,21 +23,21 @@ const Home = () => {
                     <div className="row">
                         <div className="col-lg-4">
                             <div className="features-icons-item mx-auto mb-5 mb-lg-0 mb-lg-3">
-                                <div className="features-icons-icon d-flex"></div>
+                                <div className="mx-auto mb-2"><FontAwesomeIcon icon="bug" size="6x" /></div>
                                 <h3>Create</h3>
                                 <p className="lead mb-0">Create and Maintain Bugs, Tasks, or Features</p>
                             </div>
                         </div>
                         <div className="col-lg-4">
                             <div className="features-icons-item mx-auto mb-5 mb-lg-0 mb-lg-3">
-                                <div className="features-icons-icon d-flex"><i className="bi-layers m-auto text-primary"></i></div>
+                                <div className="mx-auto mb-2"><FontAwesomeIcon icon="layer-group" size="6x" /></div>
                                 <h3>Maintain</h3>
                                 <p className="lead mb-0">Save the progress of your bug through 5 development stages</p>
                             </div>
                         </div>
                         <div className="col-lg-4">
                             <div className="features-icons-item mx-auto mb-0 mb-lg-3">
-                                <div className="features-icons-icon d-flex"><i className="bi-terminal m-auto text-primary"></i></div>
+                                <div className="mx-auto mb-2"><FontAwesomeIcon icon="user" size="6x" /></div>
                                 <h3>Easy to Use</h3>
                                 <p className="lead mb-0">Create an account and your ready to start!</p>
                             </div>
