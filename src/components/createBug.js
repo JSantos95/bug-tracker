@@ -49,7 +49,7 @@ const CreateBug = () => {
             {
                 !sessionStorage.token ? 
                 <div className="container-fluid">
-                    <div className="col-5 mx-auto">
+                    <div className="col-sm-5 mx-auto">
                         <h1>Sign In to see your bugs!</h1>
                         <button className="btn btn-primary" onClick={setToAuth(true)}>
                             Sign In
@@ -57,9 +57,9 @@ const CreateBug = () => {
                     </div>
                 </div> :
                 <div className="container mt-4">
-                    <h2 className="col-5 mx-auto">Create A New Bug</h2>
+                    <h2 className="col-sm-5 mx-auto">Create A New Bug</h2>
                     <div className="container">
-                        <form onSubmit={onSubmit} className="col-5 mx-auto">
+                        <form onSubmit={onSubmit} className="col-sm-5 mx-auto">
                             <div className="mb-3">
                                 <label htmlFor="bugName">Bug Name: </label>
                                 <input type="text" value={bugName} name="bugName" 

@@ -79,7 +79,7 @@ const ViewBug = () => {
         <div>
             { 
                 viewMode ? 
-                <div className="mx-auto col-7 overflow-hidden mt-4">
+                <div className="mx-auto col-sm-7 ps-3 pe-1 overflow-hidden mt-4">
                     <div className="row gy-2">
                         <h1> { bugName } </h1>
                         <div className="row row-cols-auto fs-4">
@@ -92,78 +92,80 @@ const ViewBug = () => {
                         </div>
                     </div>
                 </div> : 
-                <form className="container mt-4" onSubmit={saveBug}>
-                    <div className="mb-3">
-                        <label htmlFor="bugName">Bug Name: </label>
-                        <input type="text" value={bugName} name="bugName" 
-                            className="form-control" placeholder="Enter Bug Name"
-                            onChange={e => setBugName(e.target.value)} 
-                        />
-                    </div>
+                <div className="mx-auto col-sm-5 mt-4">
+                    <h1>Editing: { bugName } </h1>
+                    <form className="container" onSubmit={saveBug}>
+                        <div className="mb-3">
+                            <label htmlFor="bugName">Bug Name: </label>
+                            <input type="text" value={bugName} name="bugName" 
+                                className="form-control" placeholder="Enter Bug Name"
+                                onChange={e => setBugName(e.target.value)} 
+                            />
+                        </div>
 
-                    <div className="mb-3">
-                        <label>Type: </label>
-                        <select className="form-control" 
-                            value={type}
-                            onChange={e => setType(e.target.value)}
-                        >
-                            <option value={"Bug"}>Bug</option>
-                            <option value={"Task"}>Task</option>
-                            <option value={"Feature"}>Feature</option>
-                        </select>
-                    </div>
+                        <div className="mb-3">
+                            <label>Type: </label>
+                            <select className="form-control" 
+                                value={type}
+                                onChange={e => setType(e.target.value)}
+                            >
+                                <option value={"Bug"}>Bug</option>
+                                <option value={"Task"}>Task</option>
+                                <option value={"Feature"}>Feature</option>
+                            </select>
+                        </div>
 
-                    <div className="mb-3">
-                        <label htmlFor="description">Description: </label>
-                        <textarea type="text" value={description} name="description" 
-                            className="form-control" placeholder="Enter Description"
-                            onChange={e => setDescription(e.target.value)} 
-                        />
-                    </div>
+                        <div className="mb-3">
+                            <label htmlFor="description">Description: </label>
+                            <textarea type="text" value={description} name="description" 
+                                className="form-control" placeholder="Enter Description"
+                                onChange={e => setDescription(e.target.value)} 
+                            />
+                        </div>
 
-                    <div className="mb-3">
-                        <label>Status: </label>
-                        <select className="form-control" 
-                            value={status}
-                            onChange={e => setStatus(e.target.value)}
-                        >
-                            <option value={"Unassigned"}>Unassigned</option>
-                            <option value={"To Do"}>To Do</option>
-                            <option value={"In Progress"}>In Progress</option>
-                            <option value={"QA"}>QA</option>
-                            <option value={"Complete"}>Complete</option>
-                        </select>
-                    </div>
+                        <div className="mb-3">
+                            <label>Status: </label>
+                            <select className="form-control" 
+                                value={status}
+                                onChange={e => setStatus(e.target.value)}
+                            >
+                                <option value={"Unassigned"}>Unassigned</option>
+                                <option value={"To Do"}>To Do</option>
+                                <option value={"In Progress"}>In Progress</option>
+                                <option value={"QA"}>QA</option>
+                                <option value={"Complete"}>Complete</option>
+                            </select>
+                        </div>
 
-                    <div className="mb-3">
-                        <label>Priority: </label>
-                        <select className="form-control" 
-                            value={priority}
-                            onChange={e => setPriority(e.target.value)}
-                        >
-                            <option value={"Low"}>Low</option>
-                            <option value={"Med"}>Med</option>
-                            <option value={"High"}>High</option>
-                        </select>
-                    </div>
+                        <div className="mb-3">
+                            <label>Priority: </label>
+                            <select className="form-control" 
+                                value={priority}
+                                onChange={e => setPriority(e.target.value)}
+                            >
+                                <option value={"Low"}>Low</option>
+                                <option value={"Med"}>Med</option>
+                                <option value={"High"}>High</option>
+                            </select>
+                        </div>
 
-                    <div className='mb-3'>
-                        <label>Assginee: </label>
-                        <select className="form-control"
-                            value={assginee}
-                            onChange={e => setAssginee(e.target.value)}
-                        >
-                            { users.map((user, index) => <option key={index}>{user}</option>) }
-                        </select>
-                    </div>
+                        <div className='mb-3'>
+                            <label>Assginee: </label>
+                            <select className="form-control"
+                                value={assginee}
+                                onChange={e => setAssginee(e.target.value)}
+                            >
+                                { users.map((user, index) => <option key={index}>{user}</option>) }
+                            </select>
+                        </div>
 
-                    <div className="btn-group">
-                        <input className="btn btn-primary" type="submit" value="Save"/>
-                        <button type="button" className="btn btn-secondary" onClick={() => setMode(true)}>Cancel</button>
-                        <button type="button" className="btn btn-danger" onClick={deleteBug}>Delete</button>
-                    </div>
-                    
-                </form>
+                        <div className="btn-group">
+                            <input className="btn btn-primary" type="submit" value="Save"/>
+                            <button type="button" className="btn btn-secondary" onClick={() => setMode(true)}>Cancel</button>
+                            <button type="button" className="btn btn-danger" onClick={deleteBug}>Delete</button>
+                        </div>
+                    </form>
+                </div>
             }
         </div>
     )
