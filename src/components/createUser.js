@@ -44,7 +44,7 @@ const CreateUser = ({ newUser }) => {
 
     return (
         <div className="container mt-4">
-            <div className="col-5 mx-auto">
+            <div className="col-sm-5 mx-auto">
                 { isNew ? <h2>Create New Account</h2> : <h2>Log In</h2> }
                 <div className="container-fluid">
                     <form onSubmit={authentication}>
