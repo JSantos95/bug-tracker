@@ -33,3 +33,13 @@
 .masthead p {
   font-size: 1.3rem;
 }
+
+@media only screen and (max-width: 600px) {
+  .masthead h1 {
+    font-size: 4rem;
+  }
+  
+  .masthead p {
+    font-size: 1rem;
+  }
+}

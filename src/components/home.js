@@ -9,9 +9,9 @@ library.add(faBug, faUser, faLayerGroup);
 const Home = () => {
     return (
         <div>
-            <div className="masthead" style={{ height: "70vh", display: "grid", placeItems: "center"}}>
+            <div className="masthead" style={{ height: "80vh", display: "grid", placeItems: "center"}}>
                 <div className="d-flex mb-5 flex-column" style={{zIndex: "1100"}}>
-                    <h1 className="mx-auto">Bug Tracker</h1>
+                    <h1 className="mx-auto" >Bug Tracker</h1>
                     <p className="mx-auto">Track All Of Your Bugs And Tasks Here!</p>
                     <Link className="mx-auto" to="/user">
                         <button type="button" className="btn btn-primary btn-lg">Sign Up</button>
